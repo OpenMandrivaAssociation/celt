@@ -1,5 +1,5 @@
 %define name celt
-%define version 0.5.0
+%define version 0.5.1
 %define release %mkrel 1
 %define major 0
 %define libname %mklibname celt %major
