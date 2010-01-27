@@ -1,9 +1,10 @@
 %define name celt
-%define version 0.7.0
+%define version 0.7.1
 %define release %mkrel 1
 %define major 0
-%define libname %mklibname celt %major
-%define develname %mklibname -d celt
+%define libname %mklibname celt0_ %major
+%define develname %mklibname -d celt0
+%define olddevname %mklibname -d celt
 
 Summary: Ultra-low delay audio codec
 Name: %{name}
@@ -65,6 +66,7 @@ Summary: Headers for developing programs that will use %{name}
 Group: Development/C
 Requires: %libname = %version-%release
 Provides: %name-devel = %version-%release
+Obsoletes: %olddevname < %version
 
 %description -n %develname
 This package contains the headers that programmers will need to develop
@@ -103,12 +105,12 @@ rm -rf %{buildroot}
 %files -n %libname
 %defattr(-,root,root)
 %doc README COPYING
-%_libdir/libcelt.so.%{major}*
+%_libdir/libcelt0.so.%{major}*
 
 %files -n %develname
 %defattr(-,root,root)
 %_includedir/%name
 %_libdir/pkgconfig/%name.pc
-%_libdir/libcelt.so
-%_libdir/libcelt.la
-%_libdir/libcelt.a
+%_libdir/libcelt0.so
+%_libdir/libcelt0.la
+%_libdir/libcelt0.a
