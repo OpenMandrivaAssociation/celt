@@ -1,21 +1,17 @@
-%define name celt
-%define version 0.11.1
-%define release 1
 %define major 2
 %define libname %mklibname celt0_ %major
 %define develname %mklibname -d celt0
 %define olddevname %mklibname -d celt
 
-Summary: Ultra-low delay audio codec
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: http://downloads.us.xiph.org/releases/celt/%{name}-%{version}.tar.gz
-License: BSD
-Group: Sound
-Url: http://www.celt-codec.org/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: libogg-devel
+Summary:	Ultra-low delay audio codec
+Name:		celt
+Version:	0.11.1
+Release:	1
+Source0:	http://downloads.us.xiph.org/releases/celt/%{name}-%{version}.tar.gz
+License:	BSD
+Group:		Sound
+Url:		http://www.celt-codec.org/
+BuildRequires:	libogg-devel
 
 %description
 The CELT codec is an experimental audio codec for use in low-delay
@@ -37,11 +33,11 @@ both speech and music and currently features:
 The CELT codec is meant to close the gap between Vorbis and Speex for
 applications where both high quality audio and low delay are desired.
 
-%package -n %{libname}
-Summary: Ultra-low delay audio codec - shared library
-Group: System/Libraries
+%package -n	%{libname}
+Summary:	Ultra-low delay audio codec - shared library
+Group:		System/Libraries
 
-%description -n %{libname}
+%description -n	%{libname}
 The CELT codec is an experimental audio codec for use in low-delay
 speech and audio communication.
 
@@ -61,17 +57,16 @@ both speech and music and currently features:
 The CELT codec is meant to close the gap between Vorbis and Speex for
 applications where both high quality audio and low delay are desired.
 
-%package -n %develname
-Summary: Headers for developing programs that will use %{name}
-Group: Development/C
-Requires: %libname = %version-%release
-Provides: %name-devel = %version-%release
-Obsoletes: %olddevname < %version
+%package -n	%{develname}
+Summary:	Headers for developing programs that will use %{name}
+Group:		Development/C
+Requires:	%{libname} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
+Obsoletes:	%{olddevname} < %{version}
 
-%description -n %develname
+%description -n	%{develname}
 This package contains the headers that programmers will need to develop
 applications which will use %{name}.
-
 
 %prep
 %setup -q
@@ -81,36 +76,24 @@ applications which will use %{name}.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %check
 #gw fails in 0.5.0
 #make check
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
 %files
-%defattr(-,root,root)
 %doc README TODO
-%_bindir/celtdec
-%_bindir/celtenc
+%{_bindir}/celtdec
+%{_bindir}/celtenc
 
-%files -n %libname
-%defattr(-,root,root)
+%files -n %{libname}
 %doc README COPYING
-%_libdir/libcelt0.so.%{major}*
+%{_libdir}/libcelt0.so.%{major}*
 
 %files -n %develname
-%defattr(-,root,root)
-%_includedir/%name
-%_libdir/pkgconfig/%name.pc
-%_libdir/libcelt0.so
-%_libdir/libcelt0.la
-%_libdir/libcelt0.a
+%{_includedir}/%{name}
+%{_libdir}/pkgconfig/%{name}.pc
+%{_libdir}/libcelt0.so
+%{_libdir}/libcelt0.la
+%{_libdir}/libcelt0.a
