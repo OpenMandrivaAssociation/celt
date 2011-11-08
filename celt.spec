@@ -79,8 +79,7 @@ applications which will use %{name}.
 %makeinstall_std
 
 %check
-#gw fails in 0.5.0
-#make check
+make check
 
 %files
 %doc README TODO
