@@ -62,7 +62,7 @@ Summary:	Headers for developing programs that will use %{name}
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
 Provides:	%{name}-devel = %{EVRD}
-Obsoletes:	%{olddevname} < %{version}
+%rename		%{olddevname}
 
 %description -n	%{develname}
 This package contains the headers that programmers will need to develop
