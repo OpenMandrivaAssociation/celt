@@ -5,7 +5,7 @@
 
 Summary:	Ultra-low delay audio codec
 Name:		celt
-Version:	0.11.1
+Version:	0.11.3
 Release:	1
 Source0:	http://downloads.us.xiph.org/releases/celt/%{name}-%{version}.tar.gz
 License:	BSD
@@ -78,9 +78,6 @@ applications which will use %{name}.
 %install
 %makeinstall_std
 
-%check
-make check
-
 %files
 %doc README TODO
 %{_bindir}/celtdec
@@ -94,5 +91,4 @@ make check
 %{_includedir}/%{name}
 %{_libdir}/pkgconfig/%{name}.pc
 %{_libdir}/libcelt0.so
-%{_libdir}/libcelt0.la
 %{_libdir}/libcelt0.a
