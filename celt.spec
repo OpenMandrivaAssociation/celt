@@ -38,24 +38,7 @@ Summary:	Ultra-low delay audio codec - shared library
 Group:		System/Libraries
 
 %description -n	%{libname}
-The CELT codec is an experimental audio codec for use in low-delay
-speech and audio communication.
-
-CELT stands for "Constrained Energy Lapped Transform". It applies some
-of the CELP principles, but does everything in the frequency domain,
-which removes some of the limitations of CELP. CELT is suitable for
-both speech and music and currently features:
-
-* Ultra-low latency (typically from 3 to 9 ms)
-* Full audio bandwidth (44.1 kHz and 48 kHz)
-* Support for both voice and music
-* Stereo support
-* Packet loss concealment
-* Constant bit-rates from 32 kbps to 128 kbps and above
-* A fixed-point version of the encoder and decoder
-
-The CELT codec is meant to close the gap between Vorbis and Speex for
-applications where both high quality audio and low delay are desired.
+The package contains the shared library for %{name}.
 
 %package -n	%{devname}
 Summary:	Headers for developing programs that will use %{name}
