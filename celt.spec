@@ -54,6 +54,9 @@ applications which will use %{name}.
 %setup -q
 
 %build
+#fix build with new automake
+sed -i -e 's,AM_CONFIG_HEADER,AC_CONFIG_HEADERS,g' configure.*
+autoreconf -fi
 %configure2_5x \
 	--disable-static
 %make
