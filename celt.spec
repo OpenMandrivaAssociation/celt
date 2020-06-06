@@ -86,6 +86,8 @@ applications which will use %{name}.
 #fix build with new automake
 sed -i -e 's,AM_CONFIG_HEADER,AC_CONFIG_HEADERS,g' configure.*
 cp -f %{S:1} acinclude.m4
+# Make sure config.guess and friends know about aarch64 and riscv
+cp -f %{_datadir}/libtool/config/* .
 libtoolize --force
 aclocal
 autoheader
