@@ -17,7 +17,7 @@ Version:	0.11.3
 Release:	21
 License:	BSD
 Group:		Sound
-Url:		http://www.celt-codec.org/
+Url:		https://www.celt-codec.org/
 Source0:	http://downloads.us.xiph.org/releases/celt/%{name}-%{version}.tar.gz
 Source1:	acinclude.m4
 BuildRequires:	pkgconfig(ogg)
