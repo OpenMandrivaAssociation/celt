@@ -20,6 +20,11 @@ Group:		Sound
 Url:		https://www.celt-codec.org/
 Source0:	http://downloads.us.xiph.org/releases/celt/%{name}-%{version}.tar.gz
 Source1:	acinclude.m4
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(ogg)
 %if %{with compat32}
 BuildRequires:	devel(libogg)
